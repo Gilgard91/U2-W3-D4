@@ -64,7 +64,7 @@ const renderCards = (obj) => {
                   Hide
                 </button>
               </div>
-              <small class="text-muted">id img</small>
+              <small class="text-muted">${elem.id}</small>
             </div>
           </div>
         </div>
@@ -72,6 +72,6 @@ const renderCards = (obj) => {
   });
 };
 
-const skipMe = (event) => {
-  event.target.closest(".col").remove();
+const removeCard = (event) => {
+  event.target.closest(".col-md-4").remove();
 };
