@@ -16,19 +16,34 @@ const fetchDataPrimary = () => {
 };
 
 const fetchDataSecondary = () => {
-    fetch("https://api.pexels.com/v1/search?query=tigers", {
-      headers: {
-        Authorization: "LF8mR8enZqtUWqCqBBOSAxhvIptBKCWVLCs2QSfkwP5K9twqUVYSLOdX",
-        "Content-Type": "application/json"
-      }
+  fetch("https://api.pexels.com/v1/search?query=tigers", {
+    headers: {
+      Authorization: "LF8mR8enZqtUWqCqBBOSAxhvIptBKCWVLCs2QSfkwP5K9twqUVYSLOdX",
+      "Content-Type": "application/json"
+    }
+  })
+    .then((resp) => resp.json())
+    .then((tigers) => {
+      console.log(tigers);
+      renderCards(tigers);
     })
-      .then((resp) => resp.json())
-      .then((tigers) => {
-        console.log(tigers);
-        renderCards(tigers);
-      })
-      .catch((err) => console.log(err));
-  };
+    .catch((err) => console.log(err));
+};
+
+const searchInput = document.getElementById("random");
+
+const fetchRandom = () => {
+  fetch("https://api.pexels.com/v1/search?query=" + searchInput.value, {
+    headers: {
+      Authorization: "LF8mR8enZqtUWqCqBBOSAxhvIptBKCWVLCs2QSfkwP5K9twqUVYSLOdX",
+      "Content-Type": "application/json"
+    }
+  })
+    .then((resp) => resp.json())
+    .then((random) => {
+      renderCards(random);
+    });
+};
 
 // window.onload = () => {
 //   fetchDataPrimary();
