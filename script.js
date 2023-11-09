@@ -55,7 +55,7 @@ const renderCards = (obj) => {
     console.log(elem);
     cardsWrapper.innerHTML += `<div class="col-md-4">
         <div class="card mb-4 shadow-sm">
-          <img src="${elem.src.medium}" class="card-img-top" alt="..." />
+          <img src="${elem.src.medium}" style="height:300px; object-fit:cover" class="card-img-top" alt="..." />
         
           <div class="card-body">
             <h5 class="card-title">${elem.photographer}</h5>
