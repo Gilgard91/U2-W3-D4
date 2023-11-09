@@ -15,6 +15,21 @@ const fetchDataPrimary = () => {
     .catch((err) => console.log(err));
 };
 
+const fetchDataSecondary = () => {
+    fetch("https://api.pexels.com/v1/search?query=tigers", {
+      headers: {
+        Authorization: "LF8mR8enZqtUWqCqBBOSAxhvIptBKCWVLCs2QSfkwP5K9twqUVYSLOdX",
+        "Content-Type": "application/json"
+      }
+    })
+      .then((resp) => resp.json())
+      .then((tigers) => {
+        console.log(tigers);
+        renderCards(tigers);
+      })
+      .catch((err) => console.log(err));
+  };
+
 // window.onload = () => {
 //   fetchDataPrimary();
 // };
