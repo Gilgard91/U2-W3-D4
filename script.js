@@ -1,10 +1,6 @@
 const cardsWrapper = document.getElementById("cards-wrapper");
 
 const fetchDataPrimary = () => {
-
-}
-
-window.onload = () => {
   fetch("https://api.pexels.com/v1/search?query=videogames", {
     headers: {
       Authorization: "LF8mR8enZqtUWqCqBBOSAxhvIptBKCWVLCs2QSfkwP5K9twqUVYSLOdX",
@@ -13,12 +9,15 @@ window.onload = () => {
   })
     .then((resp) => resp.json())
     .then((games) => {
-     console.log(games);
+      console.log(games);
       renderCards(games);
-      
     })
     .catch((err) => console.log(err));
 };
+
+// window.onload = () => {
+//   fetchDataPrimary();
+// };
 
 const renderCards = (obj) => {
   cardsWrapper.innerHTML = "";
